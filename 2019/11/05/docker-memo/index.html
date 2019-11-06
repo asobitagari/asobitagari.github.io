@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="遊びたがりブログ">
 <meta property="og:description" content="DockerfileキーワードFROM　FROMは作成するDockerイメージのベースとなるイメージを指定でいる。　FROMで指定できるDockerイメージはDocker Hubに公開されているものから指定できる。 LABEL　イメージ作者の情報などを記述。 ENV　Dockerコンテナ内で使える環境変数を設定できる。 ARG　ビルド時に指定する引数から値を受け取ることができる。　Dockerfi">
 <meta property="og:locale" content="ja">
-<meta property="og:updated_time" content="2019-11-06T07:32:36.278Z">
+<meta property="og:updated_time" content="2019-11-06T09:03:41.388Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="遊びたがりブログ" type="application/atom+xml">
@@ -103,6 +103,8 @@
 <h2 id="イメージからコンテナの実行"><a href="#イメージからコンテナの実行" class="headerlink" title="イメージからコンテナの実行"></a>イメージからコンテナの実行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker [container] run [-d] イメージ名[/追加のパス]:タグ名</span><br></pre></td></tr></table></figure>
 
 <p>-dオプションをつけないとフォアグランドで実行されてしまう。-dをつけて起動した場合はコンテナIDが標準出力に出力される。<br>containerは省略可能だが、最近の風潮ではタイプが長くなるがつけて記述するほうが好まれるらしい。</p>
+<h3 id="そのほかオプション"><a href="#そのほかオプション" class="headerlink" title="そのほかオプション"></a>そのほかオプション</h3><p><code>-f</code> Dockerfileのファイル名を指定できる。省略時は<code>Dockerfile</code></p>
+<p><code>--pull=true</code> ビルド時に<code>FROM</code>で指定したイメージをレジストリからダウンロードを必ず行う。省略時は、すでにダウンロード済みであれば、ホスト内のキャッシュからビルドを行い、存在しない場合はレジストリからダウンロードする。</p>
 <h2 id="起動中のコンテナの確認"><a href="#起動中のコンテナの確認" class="headerlink" title="起動中のコンテナの確認"></a>起動中のコンテナの確認</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker container ls</span><br><span class="line">docker ps</span><br></pre></td></tr></table></figure>
 
 <p>上記二つはどちらも同じ動作。<br>表示項目のフィルタリングもできる。コンテナIDだけ抽出する場合は以下。</p>
@@ -113,6 +115,20 @@
 <p><code>docker container ls</code>と組み合わせることができる。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container stop $(docker container ls --filter &quot;ancestor=[イメージ名&quot; -q])</span><br></pre></td></tr></table></figure>
 
+<h2 id="dockerイメージの検索"><a href="#dockerイメージの検索" class="headerlink" title="dockerイメージの検索"></a>dockerイメージの検索</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search [options] 検索キーワード</span><br></pre></td></tr></table></figure>
+
+<p><code>-f, --filter filter</code> 出力をフィルターする。<br><code>--format 文字列</code> 出力をフォーマットする。<br><code>--limit 数値</code> 表示件数を指定の数値に制限する。<br><code>--no-trunc</code> 出力を省略せずに表示する。</p>
+<h2 id="dockerイメージの取得"><a href="#dockerイメージの取得" class="headerlink" title="dockerイメージの取得"></a>dockerイメージの取得</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker image pull [options] リポジトリ名[:タグ名]</span><br></pre></td></tr></table></figure>
+
+<p>例によってタグ名を省略した場合は<code>latest</code>が指定される。</p>
+<h2 id="ホスト内のイメージの一覧を取得"><a href="#ホスト内のイメージの一覧を取得" class="headerlink" title="ホスト内のイメージの一覧を取得"></a>ホスト内のイメージの一覧を取得</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker image ls [options] [リポジトリ[:タグ名]]</span><br></pre></td></tr></table></figure>
+
+<p>ダウンロード済み、ビルド済みのイメージの一覧を表示する。</p>
+<h2 id="dockerイメージのタグ付け"><a href="#dockerイメージのタグ付け" class="headerlink" title="dockerイメージのタグ付け"></a>dockerイメージのタグ付け</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker image tag 元のイメージ名[:タグ名] 新しいイメージ名[:タグ名]</span><br></pre></td></tr></table></figure>
+
+<p>タグ名を省略時は<code>latest</code></p>
+<h2 id="dockerイメージの公開"><a href="#dockerイメージの公開" class="headerlink" title="dockerイメージの公開"></a>dockerイメージの公開</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker image push [option] リポジトリ名[:タグ名]</span><br></pre></td></tr></table></figure>
+
 <h2 id="ポートフォワーディング"><a href="#ポートフォワーディング" class="headerlink" title="ポートフォワーディング"></a>ポートフォワーディング</h2><p>ポートフォワーディングは<code>docker container run</code>の起動コマンド時に<code>-p</code>オプションで指定できる。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container run -d -p [ホストポート]:コンテナポート イメージの指定</span><br></pre></td></tr></table></figure>
 
@@ -121,7 +137,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://asobitagari.github.io/2019/11/05/docker-memo/" data-id="ck2mly8kr0000a0vwa24u8kma" class="article-share-link">共有</a>
+      <a data-url="https://asobitagari.github.io/2019/11/05/docker-memo/" data-id="ck2n2mie00000qsvw44nx3ibo" class="article-share-link">共有</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/container/" rel="tag">container</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/development/" rel="tag">development</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
