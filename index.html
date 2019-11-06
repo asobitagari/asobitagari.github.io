@@ -98,8 +98,23 @@
 <h2 id="ビルド"><a href="#ビルド" class="headerlink" title="ビルド"></a>ビルド</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker image build -t イメージ[:タグ名] Dockerfileまでのパス</span><br></pre></td></tr></table></figure>
 
 <p>タグ名は省略するとlatestとなる。</p>
-<h2 id="イメージからコンテナの実行"><a href="#イメージからコンテナの実行" class="headerlink" title="イメージからコンテナの実行"></a>イメージからコンテナの実行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container run イメージ名[/追加のパス]:タグ名</span><br></pre></td></tr></table></figure>
+<h2 id="イメージからコンテナの実行"><a href="#イメージからコンテナの実行" class="headerlink" title="イメージからコンテナの実行"></a>イメージからコンテナの実行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker [container] run [-d] イメージ名[/追加のパス]:タグ名</span><br></pre></td></tr></table></figure>
 
+<p>-dオプションをつけないとフォアグランドで実行されてしまう。-dをつけて起動した場合はコンテナIDが標準出力に出力される。<br>containerは省略可能だが、最近の風潮ではタイプが長くなるがつけて記述するほうが好まれるらしい。</p>
+<h2 id="起動中のコンテナの確認"><a href="#起動中のコンテナの確認" class="headerlink" title="起動中のコンテナの確認"></a>起動中のコンテナの確認</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker container ls</span><br><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+
+<p>上記二つはどちらも同じ動作。<br>表示項目のフィルタリングもできる。コンテナIDだけ抽出する場合は以下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container ls --filter &quot;ancestor=[イメージ名]&quot; [-q]</span><br></pre></td></tr></table></figure>
+<p>-q でヘッダーなし。</p>
+<h2 id="起動中のコンテナの停止"><a href="#起動中のコンテナの停止" class="headerlink" title="起動中のコンテナの停止"></a>起動中のコンテナの停止</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container stop コンテナID</span><br></pre></td></tr></table></figure>
+
+<p><code>docker container ls</code>と組み合わせることができる。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container stop $(docker container ls --filter &quot;ancestor=[イメージ名&quot; -q])</span><br></pre></td></tr></table></figure>
+
+<h2 id="ポートフォワーディング"><a href="#ポートフォワーディング" class="headerlink" title="ポートフォワーディング"></a>ポートフォワーディング</h2><p>ポートフォワーディングは<code>docker container run</code>の起動コマンド時に<code>-p</code>オプションで指定できる。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container run -d -p [ホストポート]:コンテナポート イメージの指定</span><br></pre></td></tr></table></figure>
+
+<p>イメージの指定の仕方はコンテナの起動の項目を参照。<br>ホスト側のポートは省略することができ、省略時は自動で空いているエフェメラルポートが割り当てられる。<br>割り当てられたポートは<code>docker container ls</code>で表示される<code>ports</code>の項目で確認できる。</p>
 
       
     </div>
