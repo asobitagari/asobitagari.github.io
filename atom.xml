@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>遊びたがりブログ</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://asobitagari.github.io/"/>
+  <updated>2019-11-06T01:38:13.309Z</updated>
+  <id>https://asobitagari.github.io/</id>
+  
+  <author>
+    <name>ざきさん</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Docker メモ</title>
+    <link href="https://asobitagari.github.io/2019/11/05/docker-memo/"/>
+    <id>https://asobitagari.github.io/2019/11/05/docker-memo/</id>
+    <published>2019-11-05T09:31:19.000Z</published>
+    <updated>2019-11-06T01:38:13.309Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h2><h3 id="キーワード"><a href="#キーワード" class="headerlink" title="キーワード"></a>キーワード</h3><h4 id="FROM"><a href="#FROM" class="headerlink" title="FROM"></a>FROM</h4><p>　FROMは作成するDockerイメージのベースとなるイメージを指定でいる。<br>　FROMで指定できるDockerイメージはDocker Hubに公開されているものから指定できる。</p><h4 id="LABEL"><a href="#LABEL" class="headerlink" title="LABEL"></a>LABEL</h4><p>　イメージ作者の情報などを記述。</p><h3 id="ENV"><a href="#ENV" class="headerlink" title="ENV"></a>ENV</h3><p>　Dockerコンテナ内で使える環境変数を設定できる。</p><h3 id="ARG"><a href="#ARG" class="headerlink" title="ARG"></a>ARG</h3><p>　ビルド時に指定する引数から値を受け取ることができる。<br>　Dockerfile内で指定したARGの引数と、ビルド時に指定する引数はそろえる必要がある。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#コマンド：sampleargがそろえるべき名前</span><br><span class="line">&gt; docker image build --build-arg samplearg=okok -t example/dockerimage .</span><br><span class="line"></span><br><span class="line">#Dockerfileでは以下のように名前を指定して二行目のように値を取り出すことができる。</span><br><span class="line">ARG samplearg</span><br><span class="line">ENV BUILD_ARG=$&#123;samplearg&#125;</span><br></pre></td></tr></table></figure><h4 id="RUN"><a href="#RUN" class="headerlink" title="RUN"></a>RUN</h4><p>　RUNはDockerイメージビルド時に、Dockerコンテナ内で実行するコマンドを定義する。<br>　RUNの引数には実行したいコマンドをそのまま記述する。</p><h4 id="COPY"><a href="#COPY" class="headerlink" title="COPY"></a>COPY</h4><p>　COPYはDockerを動作させているホストマシン上のファイルやディレクトリをDockerコンテナ内にコピーするためのキーワード。</p><h4 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h4><p>　CMDはDockerコンテナとして実行する際に、コンテナ内で実行するプロセスを指定する。<br>　RUNはイメージをビルドするために使い、CMDはコンテナ起動時に一度実行される。</p><h4 id="ENTRYPOINT"><a href="#ENTRYPOINT" class="headerlink" title="ENTRYPOINT"></a>ENTRYPOINT</h4><p>　ENTRYPOINTにはコマンドを記述する。CMDはENTRYPOINTへの引数となる。–entrypointでrun時に指定することで上書きできる。</p><h2 id="ビルド"><a href="#ビルド" class="headerlink" title="ビルド"></a>ビルド</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker image build -t イメージ[:タグ名] Dockerfileまでのパス</span><br></pre></td></tr></table></figure><p>タグ名は省略するとlatestとなる。</p><h2 id="イメージからコンテナの実行"><a href="#イメージからコンテナの実行" class="headerlink" title="イメージからコンテナの実行"></a>イメージからコンテナの実行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container run イメージ名[/追加のパス]:タグ名</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Dockerfile&quot;&gt;&lt;a href=&quot;#Dockerfile&quot; class=&quot;headerlink&quot; title=&quot;Dockerfile&quot;&gt;&lt;/a&gt;Dockerfile&lt;/h2&gt;&lt;h3 id=&quot;キーワード&quot;&gt;&lt;a href=&quot;#キーワード&quot; class=&quot;he
+      
+    
+    </summary>
+    
+    
+    
+      <category term="docker" scheme="https://asobitagari.github.io/tags/docker/"/>
+    
+      <category term="container" scheme="https://asobitagari.github.io/tags/container/"/>
+    
+      <category term="development" scheme="https://asobitagari.github.io/tags/development/"/>
+    
+  </entry>
+  
+</feed>
