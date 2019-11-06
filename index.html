@@ -83,7 +83,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h2><h3 id="キーワード"><a href="#キーワード" class="headerlink" title="キーワード"></a>キーワード</h3><h4 id="FROM"><a href="#FROM" class="headerlink" title="FROM"></a>FROM</h4><p>　FROMは作成するDockerイメージのベースとなるイメージを指定でいる。<br>　FROMで指定できるDockerイメージはDocker Hubに公開されているものから指定できる。</p>
+        <h2 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h2><h3 id="インストラクション"><a href="#インストラクション" class="headerlink" title="インストラクション"></a>インストラクション</h3><h4 id="FROM"><a href="#FROM" class="headerlink" title="FROM"></a>FROM</h4><p>　FROMは作成するDockerイメージのベースとなるイメージを指定でいる。<br>　FROMで指定できるDockerイメージはDocker Hubに公開されているものから指定できる。</p>
 <h4 id="LABEL"><a href="#LABEL" class="headerlink" title="LABEL"></a>LABEL</h4><p>　イメージ作者の情報などを記述。</p>
 <h3 id="ENV"><a href="#ENV" class="headerlink" title="ENV"></a>ENV</h3><p>　Dockerコンテナ内で使える環境変数を設定できる。</p>
 <h3 id="ARG"><a href="#ARG" class="headerlink" title="ARG"></a>ARG</h3><p>　ビルド時に指定する引数から値を受け取ることができる。<br>　Dockerfile内で指定したARGの引数と、ビルド時に指定する引数はそろえる必要がある。</p>
@@ -92,7 +92,7 @@
 
 
 <h4 id="RUN"><a href="#RUN" class="headerlink" title="RUN"></a>RUN</h4><p>　RUNはDockerイメージビルド時に、Dockerコンテナ内で実行するコマンドを定義する。<br>　RUNの引数には実行したいコマンドをそのまま記述する。</p>
-<h4 id="COPY"><a href="#COPY" class="headerlink" title="COPY"></a>COPY</h4><p>　COPYはDockerを動作させているホストマシン上のファイルやディレクトリをDockerコンテナ内にコピーするためのキーワード。</p>
+<h4 id="COPY"><a href="#COPY" class="headerlink" title="COPY"></a>COPY</h4><p>　COPYはDockerを動作させているホストマシン上のファイルやディレクトリをDockerコンテナ内にコピーするためのインストラクション。</p>
 <h4 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h4><p>　CMDはDockerコンテナとして実行する際に、コンテナ内で実行するプロセスを指定する。<br>　RUNはイメージをビルドするために使い、CMDはコンテナ起動時に一度実行される。</p>
 <h4 id="ENTRYPOINT"><a href="#ENTRYPOINT" class="headerlink" title="ENTRYPOINT"></a>ENTRYPOINT</h4><p>　ENTRYPOINTにはコマンドを記述する。CMDはENTRYPOINTへの引数となる。–entrypointでrun時に指定することで上書きできる。</p>
 <h2 id="ビルド"><a href="#ビルド" class="headerlink" title="ビルド"></a>ビルド</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker image build -t イメージ[:タグ名] Dockerfileまでのパス</span><br></pre></td></tr></table></figure>
@@ -125,8 +125,12 @@
 <h2 id="dockerイメージのタグ付け"><a href="#dockerイメージのタグ付け" class="headerlink" title="dockerイメージのタグ付け"></a>dockerイメージのタグ付け</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker image tag 元のイメージ名[:タグ名] 新しいイメージ名[:タグ名]</span><br></pre></td></tr></table></figure>
 
 <p>タグ名を省略時は<code>latest</code></p>
-<h2 id="dockerイメージの公開"><a href="#dockerイメージの公開" class="headerlink" title="dockerイメージの公開"></a>dockerイメージの公開</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker image push [option] リポジトリ名[:タグ名]</span><br></pre></td></tr></table></figure>
+<h2 id="docker-Hub-へログイン"><a href="#docker-Hub-へログイン" class="headerlink" title="docker Hub へログイン"></a>docker Hub へログイン</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker login [-u id] [-p パスワード]</span><br></pre></td></tr></table></figure>
 
+<p>オプションを省略した場合は対話式に進めることができる。ID&amp;PASSを入力して認証する。</p>
+<h2 id="docker-hub-イメージの登録"><a href="#docker-hub-イメージの登録" class="headerlink" title="docker hub イメージの登録"></a>docker hub イメージの登録</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker image push [option] リポジトリ名[:タグ名]</span><br></pre></td></tr></table></figure>
+
+<p>ログイン済みであれば、自分のリポジトリにイメージを登録することができる。</p>
 <h2 id="ポートフォワーディング"><a href="#ポートフォワーディング" class="headerlink" title="ポートフォワーディング"></a>ポートフォワーディング</h2><p>ポートフォワーディングは<code>docker container run</code>の起動コマンド時に<code>-p</code>オプションで指定できる。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container run -d -p [ホストポート]:コンテナポート イメージの指定</span><br></pre></td></tr></table></figure>
 
