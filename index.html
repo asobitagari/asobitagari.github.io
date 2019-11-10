@@ -79,6 +79,42 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-docker-compose" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/10/docker-compose/" class="article-date">
+  <time datetime="2019-11-10T06:01:30.000Z" itemprop="datePublished">2019-11-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/10/docker-compose/">docker-compose</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://asobitagari.github.io/2019/11/10/docker-compose/" data-id="ck2svewhx0000r8vw9v3o392c" class="article-share-link">共有</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-docker-container" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/11/10/docker-container/" class="article-date">
@@ -112,11 +148,36 @@
 <p>イメージIDでの作成</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container run [options] イメージID [コマンド] [コマンド引数...]</span><br></pre></td></tr></table></figure>
 
+<h4 id="名前付きコンテナ"><a href="#名前付きコンテナ" class="headerlink" title="名前付きコンテナ"></a>名前付きコンテナ</h4><p>イメージからコンテナを作成した場合、コンテナの名前は自動で割り振られる。</p>
+<p><code>docker container ls [--all]</code>を行った際に<code>NAMES</code>列に記載されているのが自動で割り振られたコンテナの名前。<br>オプション<code>--all</code>を指定することで、停止中のコンテナについている名前も確認することができる。この名前を利用して、再利用することも可能。<br>また、コンテナ起動時にオプションで名前を付けることもできる。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container run --name [任意のコンテナ名] [イメージ名]:[タグ]</span><br></pre></td></tr></table></figure>
 
+<p>イメージの指定の仕方はコンテナの起動の項目を参照。<br>ホスト側のポートは省略することができ、省略時は自動で空いているエフェメラルポートが割り当てられる。<br>割り当てられたポートは<code>docker container ls</code>で表示される<code>ports</code>の項目で確認できる。</p>
+<h2 id="実行中コンテナの標準出力を取得"><a href="#実行中コンテナの標準出力を取得" class="headerlink" title="実行中コンテナの標準出力を取得"></a>実行中コンテナの標準出力を取得</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container logs [-f] コンテナID/コンテナ名</span><br></pre></td></tr></table></figure>
+
+<p><code>-f</code>をつけると<code>tail -f</code>のように、指定したコンテナの標準出力を取得し続ける。</p>
+<h2 id="実行中コンテナでコマンドの実行"><a href="#実行中コンテナでコマンドの実行" class="headerlink" title="実行中コンテナでコマンドの実行"></a>実行中コンテナでコマンドの実行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container exec [options] コンテナID/コンテナ名 コンテナで実行したいコマンド</span><br></pre></td></tr></table></figure>
+<p><code>-i -i / -it sh</code> で実行中のコンテナにシェルで操作ができる。</p>
+<h2 id="コンテナとのファイルコピー"><a href="#コンテナとのファイルコピー" class="headerlink" title="コンテナとのファイルコピー"></a>コンテナとのファイルコピー</h2><p>コンテナからホスト</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker contaner cp [options] コンテナID/コンテナ名:コピー元パス コピー先ホストパス</span><br></pre></td></tr></table></figure>
+
+<p>ホストからコンテナ</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container cp [option] コピー元ホストパス コンテナID/コンテナ名:コピー先パス</span><br></pre></td></tr></table></figure>
+
+<h2 id="コンテナの破棄"><a href="#コンテナの破棄" class="headerlink" title="コンテナの破棄"></a>コンテナの破棄</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container prune [options]</span><br></pre></td></tr></table></figure>
+
+<p>停止中のコンテナを一括削除できる。</p>
+<h3 id="イメージの削除"><a href="#イメージの削除" class="headerlink" title="イメージの削除"></a>イメージの削除</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker image prune [options]</span><br></pre></td></tr></table></figure>
+
+<p>不要そうなdockerイメージをdockerが判断して削除してくれる。</p>
+<h3 id="いろいろ削除"><a href="#いろいろ削除" class="headerlink" title="いろいろ削除"></a>いろいろ削除</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker system prune</span><br></pre></td></tr></table></figure>
+
+<p>停止中のコンテナ、ネットワーク、イメージ、ビルドキャッシュといった内容の削除をしてくれる。</p>
+<h2 id="コンテナの統計情報を取得"><a href="#コンテナの統計情報を取得" class="headerlink" title="コンテナの統計情報を取得"></a>コンテナの統計情報を取得</h2><pre><code>docker container stats [options] コンテナ名/コンテナID[ ...(複数指定可)]</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://asobitagari.github.io/2019/11/10/docker-container/" data-id="ck2sja0to0000fovwcofcbtq6" class="article-share-link">共有</a>
+      <a data-url="https://asobitagari.github.io/2019/11/10/docker-container/" data-id="ck2svewi40001r8vwa9vtf5of" class="article-share-link">共有</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/container/" rel="tag">container</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/development/" rel="tag">development</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
@@ -165,21 +226,30 @@
 <h2 id="ビルド"><a href="#ビルド" class="headerlink" title="ビルド"></a>ビルド</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker image build -t イメージ[:タグ名] Dockerfileまでのパス</span><br></pre></td></tr></table></figure>
 
 <p>タグ名は省略するとlatestとなる。</p>
-<h2 id="イメージからコンテナの実行"><a href="#イメージからコンテナの実行" class="headerlink" title="イメージからコンテナの実行"></a>イメージからコンテナの実行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker [container] run [-d] イメージ名[/追加のパス]:タグ名</span><br></pre></td></tr></table></figure>
+<h2 id="イメージからコンテナの実行"><a href="#イメージからコンテナの実行" class="headerlink" title="イメージからコンテナの実行"></a>イメージからコンテナの実行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker [container] run [-d] [-i] [-t] [-rm] [-v ホスト側ディレクトリ:コンテナ側ディレクトリ] イメージ名[/追加のパス]:タグ名</span><br></pre></td></tr></table></figure>
 
-<p>-dオプションをつけないとフォアグランドで実行されてしまう。-dをつけて起動した場合はコンテナIDが標準出力に出力される。<br>containerは省略可能だが、最近の風潮ではタイプが長くなるがつけて記述するほうが好まれるらしい。</p>
+<p><code>-d</code>オプションをつけないとフォアグランドで実行されてしまう。-dをつけて起動した場合はコンテナIDが標準出力に出力される。<br>containerは省略可能だが、最近の風潮ではタイプが長くなるがつけて記述するほうが好まれるらしい。</p>
+<p><code>-i</code>起動後にコンテナの標準入力との結びつきを維持する。</p>
+<p><code>-t</code>疑似端末を有効にする。大抵の場合<code>-i</code>と同時に用いられ、同時指定の<code>-it</code>が省略形として存在する。コンテナ起動後に、疑似端末が有効となり標準入力からコマンドを実行できるようになる。</p>
+<p><code>-rm</code>コンテナの終了時にコンテナを破棄する。</p>
+<p><code>-v</code>ホストとコンテナ間でディレクトリやファイルの共有を行う。</p>
 <h3 id="そのほかオプション"><a href="#そのほかオプション" class="headerlink" title="そのほかオプション"></a>そのほかオプション</h3><p><code>-f</code> Dockerfileのファイル名を指定できる。省略時は<code>Dockerfile</code></p>
 <p><code>--pull=true</code> ビルド時に<code>FROM</code>で指定したイメージをレジストリからダウンロードを必ず行う。省略時は、すでにダウンロード済みであれば、ホスト内のキャッシュからビルドを行い、存在しない場合はレジストリからダウンロードする。</p>
 <h2 id="起動中のコンテナの確認"><a href="#起動中のコンテナの確認" class="headerlink" title="起動中のコンテナの確認"></a>起動中のコンテナの確認</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker container ls</span><br><span class="line">docker ps</span><br></pre></td></tr></table></figure>
 
 <p>上記二つはどちらも同じ動作。<br>表示項目のフィルタリングもできる。コンテナIDだけ抽出する場合は以下。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container ls --filter &quot;ancestor=[イメージ名]&quot; [-q]</span><br></pre></td></tr></table></figure>
-<p>-q でヘッダーなし。</p>
-<h2 id="起動中のコンテナの停止"><a href="#起動中のコンテナの停止" class="headerlink" title="起動中のコンテナの停止"></a>起動中のコンテナの停止</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container stop コンテナID</span><br></pre></td></tr></table></figure>
+<p>-q でコンテナIDのみの抽出</p>
+<h2 id="起動中のコンテナの停止"><a href="#起動中のコンテナの停止" class="headerlink" title="起動中のコンテナの停止"></a>起動中のコンテナの停止</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container stop コンテナID/コンテナ名</span><br></pre></td></tr></table></figure>
 
 <p><code>docker container ls</code>と組み合わせることができる。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container stop $(docker container ls --filter &quot;ancestor=[イメージ名&quot; -q])</span><br></pre></td></tr></table></figure>
 
+<h2 id="停止中のコンテナの再起動"><a href="#停止中のコンテナの再起動" class="headerlink" title="停止中のコンテナの再起動"></a>停止中のコンテナの再起動</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container restart コンテナID/コンテナ名</span><br></pre></td></tr></table></figure>
+
+<h2 id="停止中のコンテナの破棄"><a href="#停止中のコンテナの破棄" class="headerlink" title="停止中のコンテナの破棄"></a>停止中のコンテナの破棄</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container rm [-f] コンテナID/コンテナ名</span><br></pre></td></tr></table></figure>
+
+<p><code>-f</code>オプションで実行中のコンテナの削除も可能。</p>
 <h2 id="dockerイメージの検索"><a href="#dockerイメージの検索" class="headerlink" title="dockerイメージの検索"></a>dockerイメージの検索</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search [options] 検索キーワード</span><br></pre></td></tr></table></figure>
 
 <p><code>-f, --filter filter</code> 出力をフィルターする。<br><code>--format 文字列</code> 出力をフォーマットする。<br><code>--limit 数値</code> 表示件数を指定の数値に制限する。<br><code>--no-trunc</code> 出力を省略せずに表示する。</p>
@@ -195,18 +265,16 @@
 <h2 id="docker-Hub-へログイン"><a href="#docker-Hub-へログイン" class="headerlink" title="docker Hub へログイン"></a>docker Hub へログイン</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker login [-u id] [-p パスワード]</span><br></pre></td></tr></table></figure>
 
 <p>オプションを省略した場合は対話式に進めることができる。ID&amp;PASSを入力して認証する。</p>
-<h2 id="docker-hub-イメージの登録"><a href="#docker-hub-イメージの登録" class="headerlink" title="docker hub イメージの登録"></a>docker hub イメージの登録</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker image push [option] リポジトリ名[:タグ名]</span><br></pre></td></tr></table></figure>
+<h2 id="docker-hub-イメージの登録"><a href="#docker-hub-イメージの登録" class="headerlink" title="docker hub イメージの登録"></a>docker hub イメージの登録</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker image push [options] リポジトリ名[:タグ名]</span><br></pre></td></tr></table></figure>
 
 <p>ログイン済みであれば、自分のリポジトリにイメージを登録することができる。</p>
 <h2 id="ポートフォワーディング"><a href="#ポートフォワーディング" class="headerlink" title="ポートフォワーディング"></a>ポートフォワーディング</h2><p>ポートフォワーディングは<code>docker container run</code>の起動コマンド時に<code>-p</code>オプションで指定できる。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container run -d -p [ホストポート]:コンテナポート イメージの指定</span><br></pre></td></tr></table></figure>
 
-<p>イメージの指定の仕方はコンテナの起動の項目を参照。<br>ホスト側のポートは省略することができ、省略時は自動で空いているエフェメラルポートが割り当てられる。<br>割り当てられたポートは<code>docker container ls</code>で表示される<code>ports</code>の項目で確認できる。</p>
-
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://asobitagari.github.io/2019/11/05/docker-memo/" data-id="ck2sja0tw0001fovwdknz8gm1" class="article-share-link">共有</a>
+      <a data-url="https://asobitagari.github.io/2019/11/05/docker-memo/" data-id="ck2svewia0002r8vwg9zb7wie" class="article-share-link">共有</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/container/" rel="tag">container</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/development/" rel="tag">development</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
@@ -261,6 +329,10 @@
     <h3 class="widget-title">最近の投稿</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/11/10/docker-compose/">docker-compose</a>
+          </li>
         
           <li>
             <a href="/2019/11/10/docker-container/">dockerコンテナ</a>
