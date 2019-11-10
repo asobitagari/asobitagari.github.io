@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://asobitagari.github.io/"/>
-  <updated>2019-11-06T09:47:53.154Z</updated>
+  <updated>2019-11-10T05:02:23.670Z</updated>
   <id>https://asobitagari.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>dockerコンテナ</title>
+    <link href="https://asobitagari.github.io/2019/11/10/docker-container/"/>
+    <id>https://asobitagari.github.io/2019/11/10/docker-container/</id>
+    <published>2019-11-10T04:41:34.000Z</published>
+    <updated>2019-11-10T05:02:23.670Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="dockerコンテナ"><a href="#dockerコンテナ" class="headerlink" title="dockerコンテナ"></a>dockerコンテナ</h2><h3 id="状態-ライフサイクル"><a href="#状態-ライフサイクル" class="headerlink" title="状態/ライフサイクル"></a>状態/ライフサイクル</h3><p>dockerコンテナはイメージと違い、状態を持っている。状態は、<code>実行中・停止・破棄</code>がある。</p><h4 id="実行中"><a href="#実行中" class="headerlink" title="実行中"></a>実行中</h4><p><code>docker container run</code>で起動させると実行中となり、Dockerfileに記述された<code>CMD</code>のコマンドを実行し終わるまで自動中となる。<br>よって、デーモン/サーバー系のコマンドであれば任意に停止、もしくは異常終了するまでそのコンテナは実行中となるが、そうでない場合(lsコマンドなど即座に終了するもの)は、そのコマンドを終えるまでが実行中となる。<br>CMDの実行が完了すると、コンテナは<code>停止</code>の状態へ移行する。</p><h4 id="停止"><a href="#停止" class="headerlink" title="停止"></a>停止</h4><p><code>実行中</code>であったコンテナが<code>停止</code>した状態。停止した状態なので、再利用が可能。停止した時点の情報を持っているので、ディスクなどの容量は使用している。</p><h4 id="破棄"><a href="#破棄" class="headerlink" title="破棄"></a>破棄</h4><p><code>停止</code>状態のコンテナは明示的に<code>破棄</code>をしない限りディスクに残り続ける。頻繁に実行-&gt;停止を繰り返す運用の場合には、停止されたコンテナがたまるため（再利用されない限りは実行のたびに新たなコンテナが立ち上がる）、ディスク容量を圧迫していくことになる。完全に不要となったコンテナは削除を行った方がいい。<br>ただし、一度破棄したコンテナを再び利用することはできないため、退避しなければいけない情報がないか確認してから行うこと。</p><h3 id="コンテナ操作"><a href="#コンテナ操作" class="headerlink" title="コンテナ操作"></a>コンテナ操作</h3><p>dockerのコンテナは、dockerイメージから作成を行う。作成が完了されると実行状態となる。<br>イメージの指定方法は、イメージ名かイメージに割り振られたIDを指定することができる。</p><p>イメージ名での作成</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container run [options] イメージ名[:タグ] [コマンド] [コマンド引数...]</span><br></pre></td></tr></table></figure><p>イメージIDでの作成</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container run [options] イメージID [コマンド] [コマンド引数...]</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;dockerコンテナ&quot;&gt;&lt;a href=&quot;#dockerコンテナ&quot; class=&quot;headerlink&quot; title=&quot;dockerコンテナ&quot;&gt;&lt;/a&gt;dockerコンテナ&lt;/h2&gt;&lt;h3 id=&quot;状態-ライフサイクル&quot;&gt;&lt;a href=&quot;#状態-ライフサイクル&quot;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="docker" scheme="https://asobitagari.github.io/tags/docker/"/>
+    
+      <category term="container" scheme="https://asobitagari.github.io/tags/container/"/>
+    
+      <category term="development" scheme="https://asobitagari.github.io/tags/development/"/>
+    
+  </entry>
   
   <entry>
     <title>Docker メモ</title>

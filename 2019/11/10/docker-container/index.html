@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N638V2M2NF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N638V2M2NF');
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>dockerコンテナ | 遊びたがりブログ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="dockerコンテナ状態&#x2F;ライフサイクルdockerコンテナはイメージと違い、状態を持っている。状態は、実行中・停止・破棄がある。 実行中docker container runで起動させると実行中となり、Dockerfileに記述されたCMDのコマンドを実行し終わるまで自動中となる。よって、デーモン&#x2F;サーバー系のコマンドであれば任意に停止、もしくは異常終了するまでそのコンテナは実行中となるが、そ">
+<meta name="keywords" content="docker,container,development">
+<meta property="og:type" content="article">
+<meta property="og:title" content="dockerコンテナ">
+<meta property="og:url" content="https:&#x2F;&#x2F;asobitagari.github.io&#x2F;2019&#x2F;11&#x2F;10&#x2F;docker-container&#x2F;index.html">
+<meta property="og:site_name" content="遊びたがりブログ">
+<meta property="og:description" content="dockerコンテナ状態&#x2F;ライフサイクルdockerコンテナはイメージと違い、状態を持っている。状態は、実行中・停止・破棄がある。 実行中docker container runで起動させると実行中となり、Dockerfileに記述されたCMDのコマンドを実行し終わるまで自動中となる。よって、デーモン&#x2F;サーバー系のコマンドであれば任意に停止、もしくは異常終了するまでそのコンテナは実行中となるが、そ">
+<meta property="og:locale" content="ja">
+<meta property="og:updated_time" content="2019-11-10T05:02:23.670Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="遊びたがりブログ" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">遊びたがりブログ</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSSフィード"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="検索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://asobitagari.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-docker-container" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/10/docker-container/" class="article-date">
+  <time datetime="2019-11-10T04:41:34.000Z" itemprop="datePublished">2019-11-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      dockerコンテナ
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="dockerコンテナ"><a href="#dockerコンテナ" class="headerlink" title="dockerコンテナ"></a>dockerコンテナ</h2><h3 id="状態-ライフサイクル"><a href="#状態-ライフサイクル" class="headerlink" title="状態/ライフサイクル"></a>状態/ライフサイクル</h3><p>dockerコンテナはイメージと違い、状態を持っている。状態は、<code>実行中・停止・破棄</code>がある。</p>
+<h4 id="実行中"><a href="#実行中" class="headerlink" title="実行中"></a>実行中</h4><p><code>docker container run</code>で起動させると実行中となり、Dockerfileに記述された<code>CMD</code>のコマンドを実行し終わるまで自動中となる。<br>よって、デーモン/サーバー系のコマンドであれば任意に停止、もしくは異常終了するまでそのコンテナは実行中となるが、そうでない場合(lsコマンドなど即座に終了するもの)は、そのコマンドを終えるまでが実行中となる。<br>CMDの実行が完了すると、コンテナは<code>停止</code>の状態へ移行する。</p>
+<h4 id="停止"><a href="#停止" class="headerlink" title="停止"></a>停止</h4><p><code>実行中</code>であったコンテナが<code>停止</code>した状態。停止した状態なので、再利用が可能。停止した時点の情報を持っているので、ディスクなどの容量は使用している。</p>
+<h4 id="破棄"><a href="#破棄" class="headerlink" title="破棄"></a>破棄</h4><p><code>停止</code>状態のコンテナは明示的に<code>破棄</code>をしない限りディスクに残り続ける。頻繁に実行-&gt;停止を繰り返す運用の場合には、停止されたコンテナがたまるため（再利用されない限りは実行のたびに新たなコンテナが立ち上がる）、ディスク容量を圧迫していくことになる。完全に不要となったコンテナは削除を行った方がいい。<br>ただし、一度破棄したコンテナを再び利用することはできないため、退避しなければいけない情報がないか確認してから行うこと。</p>
+<h3 id="コンテナ操作"><a href="#コンテナ操作" class="headerlink" title="コンテナ操作"></a>コンテナ操作</h3><p>dockerのコンテナは、dockerイメージから作成を行う。作成が完了されると実行状態となる。<br>イメージの指定方法は、イメージ名かイメージに割り振られたIDを指定することができる。</p>
+<p>イメージ名での作成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container run [options] イメージ名[:タグ] [コマンド] [コマンド引数...]</span><br></pre></td></tr></table></figure>
+
+<p>イメージIDでの作成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container run [options] イメージID [コマンド] [コマンド引数...]</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://asobitagari.github.io/2019/11/10/docker-container/" data-id="ck2sja0to0000fovwcofcbtq6" class="article-share-link">共有</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/container/" rel="tag">container</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/development/" rel="tag">development</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/05/docker-memo/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">Docker メモ</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/container/" rel="tag">container</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/development/" rel="tag">development</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/container/" style="font-size: 10px;">container</a> <a href="/tags/development/" style="font-size: 10px;">development</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/11/10/docker-container/">dockerコンテナ</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/05/docker-memo/">Docker メモ</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 ざきさん<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
