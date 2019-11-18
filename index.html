@@ -79,6 +79,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-load-test" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/18/load-test/" class="article-date">
+  <time datetime="2019-11-18T01:32:08.000Z" itemprop="datePublished">2019-11-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/18/load-test/">負荷テストツール</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="負荷テストを行うためのツール"><a href="#負荷テストを行うためのツール" class="headerlink" title="負荷テストを行うためのツール"></a>負荷テストを行うためのツール</h1><p>いままでJMeterか、簡単に行うならApach Benchぐらいしか選択肢がなかった負荷テストツールですが、最近いくつか新しいツールを教えてもらったので、忘れないようにメモ。<br>こういう面にもアンテナを伸ばしていかないと、エンジニアとして後れを取ってしまうなぁと感じる今日この頃。そのうち、ここに焦点を当てた記事も書いていきたい。</p>
+<h2 id="JMeter"><a href="#JMeter" class="headerlink" title="JMeter"></a>JMeter</h2><p>負荷テストといったらこれ。といった印象。というか、最近までこれ以外の方法をろくに知らなかった（apach benchをのぞく）。<br>macで作ったシナリオをubuntuに持って行ったとき、バージョンが合わずに動かなくて苦労したことがある。GUIが使える環境かどうかでJMeterのバージョンも変わる。その時は結局ubuntu側に諸々入れてmacのバージョンに合わせた。そんなubuntuのインスタンスを各リージョンに立てて、システムにアクセスさせるテストを行ったことがある（AWS）。</p>
+<p><a href="https://jmeter.apache.org/" target="_blank" rel="noopener">https://jmeter.apache.org/</a></p>
+<h2 id="Vegeta"><a href="#Vegeta" class="headerlink" title="Vegeta"></a>Vegeta</h2><p>最近知った負荷テストツール。Golang製であるのが売りだろうか。つまりJavaじゃない。</p>
+<p><a href="https://github.com/tsenart/vegeta" target="_blank" rel="noopener">https://github.com/tsenart/vegeta</a></p>
+<h2 id="Gatling"><a href="#Gatling" class="headerlink" title="Gatling"></a>Gatling</h2><p>軽量でスケールアウトし、スクリプト（Scala）でシナリオ（テスト）をつくれてxmlがいらないやつ。でもJDK8以上が必要。</p>
+<p><a href="https://gatling.io/" target="_blank" rel="noopener">https://gatling.io/</a></p>
+<h2 id="Tsung"><a href="#Tsung" class="headerlink" title="Tsung"></a>Tsung</h2><p>動作が軽い。付属ツールでHTMLでのレポートを出力可能。スレッド数での負荷調整ではなく、秒間〇セッションといった風な調整方法なので、そのまま秒間〇アクセスといった目標値を設定しやすい。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://asobitagari.github.io/2019/11/18/load-test/" data-id="ck347x7vw0003m8vw9loe5bfs" class="article-share-link">共有</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JMeter/" rel="tag">JMeter</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vegeta/" rel="tag">Vegeta</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/development/" rel="tag">development</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/load-test/" rel="tag">load test</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-docker-container" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/11/10/docker-container/" class="article-date">
@@ -141,7 +187,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://asobitagari.github.io/2019/11/10/docker-container/" data-id="ck2svewi40001r8vwa9vtf5of" class="article-share-link">共有</a>
+      <a data-url="https://asobitagari.github.io/2019/11/10/docker-container/" data-id="ck347x7vi0000m8vweuj2eyov" class="article-share-link">共有</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/container/" rel="tag">container</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/development/" rel="tag">development</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
@@ -238,7 +284,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://asobitagari.github.io/2019/11/05/docker-memo/" data-id="ck2svewia0002r8vwg9zb7wie" class="article-share-link">共有</a>
+      <a data-url="https://asobitagari.github.io/2019/11/05/docker-memo/" data-id="ck347x7vr0001m8vw6vq652ru" class="article-share-link">共有</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/container/" rel="tag">container</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/development/" rel="tag">development</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
@@ -263,7 +309,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">タグ</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/container/" rel="tag">container</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/development/" rel="tag">development</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JMeter/" rel="tag">JMeter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vegeta/" rel="tag">Vegeta</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/container/" rel="tag">container</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/development/" rel="tag">development</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/load-test/" rel="tag">load test</a></li></ul>
     </div>
   </div>
 
@@ -273,7 +319,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">タグクラウド</h3>
     <div class="widget tagcloud">
-      <a href="/tags/container/" style="font-size: 10px;">container</a> <a href="/tags/development/" style="font-size: 10px;">development</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a>
+      <a href="/tags/JMeter/" style="font-size: 10px;">JMeter</a> <a href="/tags/Vegeta/" style="font-size: 10px;">Vegeta</a> <a href="/tags/container/" style="font-size: 15px;">container</a> <a href="/tags/development/" style="font-size: 20px;">development</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/load-test/" style="font-size: 10px;">load test</a>
     </div>
   </div>
 
@@ -293,6 +339,10 @@
     <h3 class="widget-title">最近の投稿</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/11/18/load-test/">負荷テストツール</a>
+          </li>
         
           <li>
             <a href="/2019/11/10/docker-container/">dockerコンテナ</a>

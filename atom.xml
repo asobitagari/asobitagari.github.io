@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="https://www.w3.org/2005/Atom">
   <title>遊びたがりブログ</title>
   
   
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://asobitagari.github.io/"/>
-  <updated>2019-11-10T06:00:48.238Z</updated>
+  <updated>2019-11-18T09:19:30.968Z</updated>
   <id>https://asobitagari.github.io/</id>
   
   <author>
@@ -14,7 +14,37 @@
     
   </author>
   
-  <generator uri="http://hexo.io/">Hexo</generator>
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>負荷テストツール</title>
+    <link href="https://asobitagari.github.io/2019/11/18/load-test/"/>
+    <id>https://asobitagari.github.io/2019/11/18/load-test/</id>
+    <published>2019-11-18T01:32:08.000Z</published>
+    <updated>2019-11-18T09:19:30.968Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="負荷テストを行うためのツール"><a href="#負荷テストを行うためのツール" class="headerlink" title="負荷テストを行うためのツール"></a>負荷テストを行うためのツール</h1><p>いままでJMeterか、簡単に行うならApach Benchぐらいしか選択肢がなかった負荷テストツールですが、最近いくつか新しいツールを教えてもらったので、忘れないようにメモ。<br>こういう面にもアンテナを伸ばしていかないと、エンジニアとして後れを取ってしまうなぁと感じる今日この頃。そのうち、ここに焦点を当てた記事も書いていきたい。</p><h2 id="JMeter"><a href="#JMeter" class="headerlink" title="JMeter"></a>JMeter</h2><p>負荷テストといったらこれ。といった印象。というか、最近までこれ以外の方法をろくに知らなかった（apach benchをのぞく）。<br>macで作ったシナリオをubuntuに持って行ったとき、バージョンが合わずに動かなくて苦労したことがある。GUIが使える環境かどうかでJMeterのバージョンも変わる。その時は結局ubuntu側に諸々入れてmacのバージョンに合わせた。そんなubuntuのインスタンスを各リージョンに立てて、システムにアクセスさせるテストを行ったことがある（AWS）。</p><p><a href="https://jmeter.apache.org/" target="_blank" rel="noopener">https://jmeter.apache.org/</a></p><h2 id="Vegeta"><a href="#Vegeta" class="headerlink" title="Vegeta"></a>Vegeta</h2><p>最近知った負荷テストツール。Golang製であるのが売りだろうか。つまりJavaじゃない。</p><p><a href="https://github.com/tsenart/vegeta" target="_blank" rel="noopener">https://github.com/tsenart/vegeta</a></p><h2 id="Gatling"><a href="#Gatling" class="headerlink" title="Gatling"></a>Gatling</h2><p>軽量でスケールアウトし、スクリプト（Scala）でシナリオ（テスト）をつくれてxmlがいらないやつ。でもJDK8以上が必要。</p><p><a href="https://gatling.io/" target="_blank" rel="noopener">https://gatling.io/</a></p><h2 id="Tsung"><a href="#Tsung" class="headerlink" title="Tsung"></a>Tsung</h2><p>動作が軽い。付属ツールでHTMLでのレポートを出力可能。スレッド数での負荷調整ではなく、秒間〇セッションといった風な調整方法なので、そのまま秒間〇アクセスといった目標値を設定しやすい。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;負荷テストを行うためのツール&quot;&gt;&lt;a href=&quot;#負荷テストを行うためのツール&quot; class=&quot;headerlink&quot; title=&quot;負荷テストを行うためのツール&quot;&gt;&lt;/a&gt;負荷テストを行うためのツール&lt;/h1&gt;&lt;p&gt;いままでJMeterか、簡単に行うならApa
+      
+    
+    </summary>
+    
+    
+    
+      <category term="development" scheme="https://asobitagari.github.io/tags/development/"/>
+    
+      <category term="load test" scheme="https://asobitagari.github.io/tags/load-test/"/>
+    
+      <category term="JMeter" scheme="https://asobitagari.github.io/tags/JMeter/"/>
+    
+      <category term="Vegeta" scheme="https://asobitagari.github.io/tags/Vegeta/"/>
+    
+  </entry>
   
   <entry>
     <title>dockerコンテナ</title>
