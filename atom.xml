@@ -36,9 +36,9 @@
     
     
     
-      <category term="development" scheme="https://asobitagari.github.io/tags/development/"/>
-    
       <category term="load test" scheme="https://asobitagari.github.io/tags/load-test/"/>
+    
+      <category term="development" scheme="https://asobitagari.github.io/tags/development/"/>
     
       <category term="JMeter" scheme="https://asobitagari.github.io/tags/JMeter/"/>
     
@@ -66,11 +66,11 @@
     
     
     
+      <category term="development" scheme="https://asobitagari.github.io/tags/development/"/>
+    
       <category term="docker" scheme="https://asobitagari.github.io/tags/docker/"/>
     
       <category term="container" scheme="https://asobitagari.github.io/tags/container/"/>
-    
-      <category term="development" scheme="https://asobitagari.github.io/tags/development/"/>
     
   </entry>
   
@@ -94,11 +94,11 @@
     
     
     
+      <category term="development" scheme="https://asobitagari.github.io/tags/development/"/>
+    
       <category term="docker" scheme="https://asobitagari.github.io/tags/docker/"/>
     
       <category term="container" scheme="https://asobitagari.github.io/tags/container/"/>
-    
-      <category term="development" scheme="https://asobitagari.github.io/tags/development/"/>
     
   </entry>
   
