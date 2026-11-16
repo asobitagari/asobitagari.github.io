@@ -10,7 +10,29 @@
   <rights>All rights reserved 2026, ざきさん</rights>
   <subtitle>プログラミン / アナログゲーム製作</subtitle>
   <title>遊びたがりブログ</title>
-  <updated>2026-11-16T10:52:44.000Z</updated>
+  <updated>2026-11-17T03:00:00.000Z</updated>
+  <entry>
+    <author>
+      <name>ざきさん</name>
+    </author>
+    <category term="算数" scheme="https://asobitagari.xyz/tags/%E7%AE%97%E6%95%B0/"/>
+    <category term="小学生" scheme="https://asobitagari.xyz/tags/%E5%B0%8F%E5%AD%A6%E7%94%9F/"/>
+    <category term="知育" scheme="https://asobitagari.xyz/tags/%E7%9F%A5%E8%82%B2/"/>
+    <category term="アプリ" scheme="https://asobitagari.xyz/tags/%E3%82%A2%E3%83%97%E3%83%AA/"/>
+    <category term="自作" scheme="https://asobitagari.xyz/tags/%E8%87%AA%E4%BD%9C/"/>
+    <content>
+      <![CDATA[<p>小学校低学年向けの、たしざん・ひきざんの練習アプリ <strong>「さんすう れんしゅう」</strong> を作りました。<br>無料で、登録やダウンロードもいりません。スマホ・タブレット・パソコンのブラウザでそのまま使えます。</p><div class="app-link"><a href="https://asobitagari.xyz/sansu-app/" target="_blank" rel="noopener">さんすう れんしゅう をひらく</a></div><span id="more"></span><h2 id="どんなアプリ？"><a href="#どんなアプリ？" class="headerlink" title="どんなアプリ？"></a>どんなアプリ？</h2><p>算数の宿題や、ちょっとした空き時間の計算練習に使うアプリです。</p><ul><li>3 種類の問題から選べる<ol><li><strong>たしざん１</strong>：くり上がりのない 1 けたのたしざん（れい: 3 + 4）</li><li><strong>ひきざん</strong>：答えがマイナスにならない 1 けたのひきざん（れい: 8 − 5）</li><li><strong>たしざん２</strong>：くり上がりのある 1 けたのたしざん（れい: 7 + 6）</li></ol></li><li>1 回 10 問。同じ問題は 1 回の中で出ません</li><li>最後に「何問あってたか」と「まちがえた問題」が出ます</li></ul><div class="app-shots"><figure><img src="/sansu-renshu-app/menu.png" alt="メニュー画面" loading="lazy"></figure><figure><img src="/sansu-renshu-app/answer.png" alt="出題画面" loading="lazy"></figure><figure><img src="/sansu-renshu-app/result.png" alt="結果画面" loading="lazy"></figure></div><h2 id="使い方"><a href="#使い方" class="headerlink" title="使い方"></a>使い方</h2><ol><li>問題を選ぶと、計算の式が出ます</li><li>頭の中やノートで計算して、「こたえを みる」を押します</li><li>答えが出るので、自分で「あってた」「まちがってた」を押します</li><li>10 問終わると結果が出ます。まちがえた問題は答えといっしょに表示されるので、見直しに使えます</li></ol><p>答えは入力せず、<strong>自分で答え合わせをする</strong> しくみにしました。<br>低学年の子は数字の入力でつまずきやすいので、計算そのものに集中できるようにしています。<br>親子で「せーの」で答えてから「こたえを みる」を押す、という遊び方もできます。</p><h2 id="ホーム画面に追加すると、アプリのように使えます"><a href="#ホーム画面に追加すると、アプリのように使えます" class="headerlink" title="ホーム画面に追加すると、アプリのように使えます"></a>ホーム画面に追加すると、アプリのように使えます</h2><p>スマホのブラウザで開いて「ホーム画面に追加」をすると、アイコンから起動できるようになります。<br>一度開けば、通信のない場所でも使えます。</p><ul><li><strong>iPhone（Safari）</strong>：共有ボタン →「ホーム画面に追加」</li><li><strong>Android（Chrome）</strong>：メニュー（︙）→「ホーム画面に追加」または「アプリをインストール」</li></ul><h2 id="広告なし・登録なし"><a href="#広告なし・登録なし" class="headerlink" title="広告なし・登録なし"></a>広告なし・登録なし</h2><p>子供が使うアプリなので、広告は入れていません。<br>名前の入力や登録もいりません。問題の答えや結果も、どこにも保存・送信しません。<br>（アクセス数を知るために Google アナリティクスを使っています。広告のための設定はオフにしています）</p><h2 id="これから"><a href="#これから" class="headerlink" title="これから"></a>これから</h2><p>今後は、くり下がりのあるひきざんや九九など、問題の種類を増やしていく予定です。<br>「こんな問題がほしい」というご意見があれば、ぜひ教えてください。</p><div class="app-link"><a href="https://asobitagari.xyz/sansu-app/" target="_blank" rel="noopener">さんすう れんしゅう をひらく</a></div>]]>
+    </content>
+    <id>https://asobitagari.xyz/sansu-renshu-app/</id>
+    <link href="https://asobitagari.xyz/sansu-renshu-app/"/>
+    <published>2026-11-17T03:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>小学校低学年向けの、たしざん・ひきざんの練習アプリ <strong>「さんすう れんしゅう」</strong> を作りました。<br>無料で、登録やダウンロードもいりません。スマホ・タブレット・パソコンのブラウザでそのまま使えます。</p>
+<div class="app-link"><a href="https://asobitagari.xyz/sansu-app/" target="_blank" rel="noopener">さんすう れんしゅう をひらく</a></div>]]>
+    </summary>
+    <title>小学1年生の算数の宿題用に「さんすう れんしゅう」アプリを作りました</title>
+    <updated>2026-11-17T03:00:00.000Z</updated>
+  </entry>
   <entry>
     <author>
       <name>ざきさん</name>
