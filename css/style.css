@@ -1069,6 +1069,131 @@ a.article-title:hover {
   background: #1f6fd8;
   text-decoration: none;
 }
+.top-ad {
+  max-width: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+.top-ad [hidden] {
+  display: none !important;
+}
+.house-banner {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  gap: 16px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 728px;
+  min-height: 90px;
+  margin: 0 auto 10px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  background: -webkit-linear-gradient(315deg, #2f80ed, #8e5bd8);
+  background: -moz-linear-gradient(315deg, #2f80ed, #8e5bd8);
+  background: -ms-linear-gradient(315deg, #2f80ed, #8e5bd8);
+  background: linear-gradient(135deg, #2f80ed, #8e5bd8);
+  color: #fff;
+  text-align: left;
+  text-decoration: none;
+}
+.house-banner:hover {
+  color: #fff;
+  text-decoration: none;
+  filter: brightness(1.05);
+}
+@media screen and (max-width: 479px) {
+  .house-banner {
+    gap: 12px;
+    padding: 10px 14px;
+    min-height: 0;
+  }
+}
+.house-banner-icon {
+  -webkit-box-flex: 0;
+  -moz-box-flex: 0;
+  box-flex: 0;
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: #fff;
+}
+@media screen and (max-width: 479px) {
+  .house-banner-icon {
+    width: 44px;
+    height: 44px;
+  }
+}
+.house-banner-text {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  min-width: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 2px;
+}
+.house-banner-title {
+  font-size: 1.35em;
+  font-weight: bold;
+}
+@media screen and (max-width: 479px) {
+  .house-banner-title {
+    font-size: 1.1em;
+  }
+}
+.house-banner-sub {
+  font-size: 0.9em;
+  opacity: 0.92;
+}
+@media screen and (max-width: 479px) {
+  .house-banner-sub {
+    font-size: 0.8em;
+  }
+}
+.house-banner-btn {
+  -webkit-box-flex: 0;
+  -moz-box-flex: 0;
+  box-flex: 0;
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: #fff;
+  color: #2f80ed;
+  font-weight: bold;
+}
+@media screen and (max-width: 479px) {
+  .house-banner-btn {
+    display: none;
+  }
+}
 #comments {
   background: #fff;
   -webkit-box-shadow: 1px 2px 3px #ddd;
