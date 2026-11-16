@@ -1194,6 +1194,15 @@ a.article-title:hover {
     display: none;
   }
 }
+.house-rakuten {
+  display: table;
+  margin: 0 auto 10px;
+  line-height: 0;
+}
+.house-rakuten img {
+  max-width: 100%;
+  height: auto;
+}
 #comments {
   background: #fff;
   -webkit-box-shadow: 1px 2px 3px #ddd;

@@ -4,6 +4,7 @@
 // 枠の中の同一オリジンのフレームをたどり、目に見える大きさの画像や外部フレームがあれば
 // 広告が出たとみなす。WAIT_MS 待っても見つからなければ、枠を隠してバナーを出す。
 // 広告ブロックなどでスクリプトが読めなかった場合も、同じくバナーになる。
+// バナーの候補（.house-item）が複数あれば、ページを開くたびにランダムで 1 つ選ぶ。
 (function () {
   var WAIT_MS = 6000;
   var POLL_MS = 500;
@@ -42,8 +43,8 @@
 
   function watch(box) {
     var slot = box.querySelector('.top-ad-slot');
-    var banner = box.querySelector('.house-banner');
-    if (!slot || !banner) return;
+    var items = box.querySelectorAll('.house-item');
+    if (!slot || items.length === 0) return;
     var start = Date.now();
     (function check() {
       if (hasAd(slot, 0)) return; // 広告が出たので何もしない
@@ -52,8 +53,15 @@
         return;
       }
       slot.hidden = true;
-      banner.hidden = false;
+      show(items[Math.floor(Math.random() * items.length)]);
     })();
+  }
+
+  // 候補のうち 1 つを表示し、その画像だけ読み込む
+  function show(item) {
+    var imgs = item.querySelectorAll('img[data-src]');
+    for (var i = 0; i < imgs.length; i++) imgs[i].src = imgs[i].getAttribute('data-src');
+    item.hidden = false;
   }
 
   function init() {
