@@ -1589,6 +1589,15 @@ pre .javascript .function {
   margin-left: 15px;
   list-style: disc;
 }
+.widget-ad {
+  text-align: center;
+}
+.widget-ad > div,
+.widget-ad iframe,
+.widget-ad ins {
+  margin-left: auto;
+  margin-right: auto;
+}
 .widget {
   line-height: 1.6em;
   word-wrap: break-word;
