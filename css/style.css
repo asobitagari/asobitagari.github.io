@@ -939,6 +939,66 @@ a.article-title:hover {
   max-width: 100%;
   margin: 0 auto;
 }
+.article-entry .affiliate-card {
+  margin: 1.6em 0;
+}
+.article-entry .affiliate-card table {
+  width: auto;
+  margin: 0;
+}
+.article-entry .affiliate-card td {
+  border-bottom: none;
+  padding: 0;
+}
+.article-entry .affiliate-card > table > tbody > tr > td > div,
+.article-entry .affiliate-card > table > tr > td > div {
+  width: auto !important;
+  max-width: 504px;
+}
+@media screen and (max-width: 479px) {
+  .article-entry .affiliate-card td {
+    display: block;
+    width: auto !important;
+  }
+}
+.article-entry .affiliate-hero {
+  margin: 1.6em 0;
+  text-align: center;
+}
+.article-entry .affiliate-hero img {
+  margin: 0 auto !important;
+}
+.article-entry .affiliate-hero.is-pair {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  gap: 10px;
+}
+.article-entry .affiliate-hero.is-pair > a {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1 1 0;
+  -ms-flex: 1 1 0;
+  flex: 1 1 0;
+  max-width: 400px;
+}
+.article-entry .affiliate-hero.is-pair img {
+  width: 100%;
+}
+@media screen and (max-width: 479px) {
+  .article-entry .affiliate-hero.is-pair > a:first-child {
+    display: none;
+  }
+}
 #comments {
   background: #fff;
   -webkit-box-shadow: 1px 2px 3px #ddd;
