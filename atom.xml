@@ -10,7 +10,29 @@
   <rights>All rights reserved 2026, ざきさん</rights>
   <subtitle>プログラミン / アナログゲーム製作</subtitle>
   <title>遊びたがりブログ</title>
-  <updated>2026-11-17T03:00:00.000Z</updated>
+  <updated>2026-11-18T03:00:00.000Z</updated>
+  <entry>
+    <author>
+      <name>ざきさん</name>
+    </author>
+    <category term="算数" scheme="https://asobitagari.xyz/tags/%E7%AE%97%E6%95%B0/"/>
+    <category term="小学生" scheme="https://asobitagari.xyz/tags/%E5%B0%8F%E5%AD%A6%E7%94%9F/"/>
+    <category term="知育" scheme="https://asobitagari.xyz/tags/%E7%9F%A5%E8%82%B2/"/>
+    <category term="アプリ" scheme="https://asobitagari.xyz/tags/%E3%82%A2%E3%83%97%E3%83%AA/"/>
+    <category term="自作" scheme="https://asobitagari.xyz/tags/%E8%87%AA%E4%BD%9C/"/>
+    <content>
+      <![CDATA[<p>小学校低学年向けの計算練習アプリ <strong>「さんすう れんしゅう」</strong> に、新しい問題 <strong>「ひきざん２」</strong> を追加しました。<br><strong>10 から 1 けたの数をひく</strong> 引き算（10 − 3 など）の練習ができます。</p><div class="app-link"><a href="https://asobitagari.xyz/sansu-app/" target="_blank" rel="noopener">さんすう れんしゅう をひらく</a></div><span id="more"></span><p>アプリの紹介は、前回の記事「<a href="/sansu-renshu-app/">小学1年生の算数の宿題用に「さんすう れんしゅう」アプリを作りました</a>」をご覧ください。</p><h2 id="追加した「ひきざん２」"><a href="#追加した「ひきざん２」" class="headerlink" title="追加した「ひきざん２」"></a>追加した「ひきざん２」</h2><ul><li>問題は <strong>10 − 1 〜 10 − 9 の 9 とおり</strong></li><li>1 回で 9 問。9 とおりを全部、毎回ちがう順番で出します</li><li>終わると「9もん ちゅう ○もん あってた」と、まちがえた問題が出ます</li></ul><p>「10 から いくつ ひくと いくつ？」は、「10 は 3 と 7」のような <strong>10 の分け方（合成・分解）</strong> そのものです。<br>このあと習う、くり下がりのある引き算（13 − 8 など）の土台になるので、すらすら答えられるまでくり返すのがおすすめです。</p><div class="app-shots"><figure><img src="/sansu-renshu-app-hikizan2/menu.png" alt="4 種類になったメニュー画面" loading="lazy"></figure><figure><img src="/sansu-renshu-app-hikizan2/answer.png" alt="ひきざん２ の出題画面" loading="lazy"></figure><figure><img src="/sansu-renshu-app-hikizan2/result.png" alt="ひきざん２ の結果画面" loading="lazy"></figure></div><h2 id="メニューは-4-種類になりました"><a href="#メニューは-4-種類になりました" class="headerlink" title="メニューは 4 種類になりました"></a>メニューは 4 種類になりました</h2><ol><li><strong>たしざん１</strong>：くり上がりのない 1 けたのたしざん（れい: 3 + 4）</li><li><strong>ひきざん１</strong>：答えがマイナスにならない 1 けたのひきざん（れい: 8 − 5）</li><li><strong>たしざん２</strong>：くり上がりのある 1 けたのたしざん（れい: 7 + 6）</li><li><strong>ひきざん２</strong>：10 から 1 けたをひく ひきざん（れい: 10 − 3）<strong>← NEW</strong></li></ol><p>今までの「ひきざん」は、名前を <strong>「ひきざん１」</strong> に変えました。問題の内容は変わっていません。</p><h2 id="ホーム画面に追加している方へ"><a href="#ホーム画面に追加している方へ" class="headerlink" title="ホーム画面に追加している方へ"></a>ホーム画面に追加している方へ</h2><p>ホーム画面に追加して使っている場合も、自動で新しいバージョンに切り替わります。<br>アプリは開いたときに裏で新しいバージョンを取りにいくので、<strong>1 回目は前のメニューのまま</strong> のことがあります。<br>そのときは一度アプリを閉じて、もう一度開いてみてください。</p><h2 id="これから"><a href="#これから" class="headerlink" title="これから"></a>これから</h2><p>次は、くり下がりのある引き算などを追加していく予定です。<br>「こんな問題がほしい」というご意見があれば、ぜひ教えてください。</p><div class="app-link"><a href="https://asobitagari.xyz/sansu-app/" target="_blank" rel="noopener">さんすう れんしゅう をひらく</a></div>]]>
+    </content>
+    <id>https://asobitagari.xyz/sansu-renshu-app-hikizan2/</id>
+    <link href="https://asobitagari.xyz/sansu-renshu-app-hikizan2/"/>
+    <published>2026-11-18T03:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>小学校低学年向けの計算練習アプリ <strong>「さんすう れんしゅう」</strong> に、新しい問題 <strong>「ひきざん２」</strong> を追加しました。<br><strong>10 から 1 けたの数をひく</strong> 引き算（10 − 3 など）の練習ができます。</p>
+<div class="app-link"><a href="https://asobitagari.xyz/sansu-app/" target="_blank" rel="noopener">さんすう れんしゅう をひらく</a></div>]]>
+    </summary>
+    <title>「さんすう れんしゅう」に「ひきざん２（10 − 1けた）」を追加しました</title>
+    <updated>2026-11-18T03:00:00.000Z</updated>
+  </entry>
   <entry>
     <author>
       <name>ざきさん</name>
